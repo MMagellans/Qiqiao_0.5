@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<properties resource="jdbc.properties"></properties>
+
+<settings>
+  <setting name="cacheEnabled" value="true"/>
+  <setting name="lazyLoadingEnabled" value="true"/>
+  <setting name="multipleResultSetsEnabled" value="true"/>
+  <setting name="useColumnLabel" value="true"/>
+  <setting name="useGeneratedKeys" value="false"/>
+  <setting name="autoMappingBehavior" value="PARTIAL"/>
+  <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+  <setting name="defaultExecutorType" value="SIMPLE"/>
+  <setting name="defaultStatementTimeout" value="25"/>
+  <setting name="defaultFetchSize" value="100"/>
+  <setting name="safeRowBoundsEnabled" value="false"/>
+  <setting name="mapUnderscoreToCamelCase" value="false"/>
+  <setting name="localCacheScope" value="SESSION"/>
+  <setting name="jdbcTypeForNull" value="OTHER"/>
+  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+  <!-- 指定记录日志用LOG4J -->
+  <setting name="logImpl" value="LOG4J"/>
+</settings>
+
+<typeAliases>
+	<package name="com.qiqiao.model"/>
+	<!-- 
+	<typeAlias type="com.qiqiao.model.Section" alias="Section"/>
+	<typeAlias type="com.qiqiao.model.Board" alias="Board"/>
+	 -->
+</typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>      
+      <dataSource type="POOLED">
+        <property name="driver" value="${driverClass}"/>
+        <property name="url" value="${jdbcUrl}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>      
+    </environment>
+  </environments>
+
+<mappers>
+<package name="com/qiqiao/mapper"/>
+	<!-- 
+	<mapper resource="com/qiqiao/mapper/SectionMapper.xml"/>
+	 -->	
+</mappers>
+
+  
+</configuration>
