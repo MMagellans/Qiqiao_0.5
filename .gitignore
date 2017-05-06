@@ -6,3 +6,6 @@ sqlScripts/
 .gitignore
 .settings/
 .project
+.classpath
+target/
+WebRoot/WEB-INF/classes/
