@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSessionListener;
 public class SessionListener implements HttpSessionListener{
 
 	/*session创建事件*/
-	@Override
 	public void sessionCreated(HttpSessionEvent event) {
 		 ServletContext ctx = event.getSession( ).getServletContext();
 		 Integer onlineNumber = (Integer) ctx.getAttribute("onlineNumber") ;
@@ -22,7 +21,6 @@ public class SessionListener implements HttpSessionListener{
 	}
 
 	/*session销毁事件*/
-	@Override	
 	public void sessionDestroyed(HttpSessionEvent event) {
 		ServletContext ctx  = event.getSession().getServletContext();
 		Integer onlineNumber = (Integer) ctx.getAttribute("onlineNumber");

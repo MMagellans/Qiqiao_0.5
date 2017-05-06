@@ -5,7 +5,7 @@ package com.qiqiao.enums;
 
 /**
  * @author Administrator
- * @DATE 2017-1-13
+ * @DATE 2017-3-23
  */
 public enum MapperEnum {
 	

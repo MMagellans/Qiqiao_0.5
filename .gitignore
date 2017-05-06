@@ -4,3 +4,5 @@
 .svn/
 sqlScripts/
 .gitignore
+.settings/
+.project
