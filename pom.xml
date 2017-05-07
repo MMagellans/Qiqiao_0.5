@@ -243,8 +243,7 @@
 
 	</dependencies>
 	<build>
-		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
-		<outputDirectory>${basedir}/WebRoot/WEB-INF/classes</outputDirectory>
+		
 
 		<plugins>
 
@@ -263,7 +262,13 @@
 							<outputDirectory>${basedir}/WebRoot/WEB-INF/classes</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/src/main/resource</directory>
+									<directory>${basedir}/src/main/resource/biz</directory>
+									<excludes>
+										<exclude>**/*.java</exclude>
+									</excludes>
+								</resource>
+								<resource>
+									<directory>${basedir}/src/main/resource/dev</directory>
 									<excludes>
 										<exclude>**/*.java</exclude>
 									</excludes>
@@ -289,8 +294,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.6</source>
+					<target>1.6</target>
+					<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+					<outputDirectory>${basedir}/WebRoot/WEB-INF/classes</outputDirectory>
 				</configuration>
 			</plugin>
 
