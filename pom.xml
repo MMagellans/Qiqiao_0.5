@@ -269,9 +269,6 @@
 								</resource>
 								<resource>
 									<directory>${basedir}/src/main/resource/dev</directory>
-									<excludes>
-										<exclude>**/*.java</exclude>
-									</excludes>
 								</resource>
 							</resources>
 						</configuration>
