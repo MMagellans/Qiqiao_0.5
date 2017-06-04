@@ -1,23 +1,14 @@
 package com.qiqiao.util;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
-
-import com.qiqiao.model.Attach;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 
 public class ReadXmlUtil {
@@ -35,9 +26,9 @@ public class ReadXmlUtil {
 	}
 	
 	/**
-	 * 获取imagePath节点下的元素内容
+	 * 鑾峰彇imagePath鑺傜偣涓嬬殑鍏冪礌鍐呭
 	 * 
-	 * @param node imagePath节点下的节点名称
+	 * @param node imagePath鑺傜偣涓嬬殑鑺傜偣鍚嶇О
 	 * 
 	 * @return
 	 */
@@ -49,9 +40,9 @@ public class ReadXmlUtil {
 	}
 	
 	/**
-	 * 获取name节点下的元素内容
+	 * 鑾峰彇name鑺傜偣涓嬬殑鍏冪礌鍐呭
 	 * 
-	 * @param node name节点下的节点名称
+	 * @param node name鑺傜偣涓嬬殑鑺傜偣鍚嶇О
 	 * 
 	 * @return
 	 */
@@ -62,7 +53,7 @@ public class ReadXmlUtil {
 		return name;
 	}
 	
-	//设置图片路径
+	//璁剧疆鍥剧墖璺緞
 	public static void setImagePathNode(String node , String path) throws Exception {
 		Element root = doc.getRootElement();
 		Element element = root.element("imagePath").element(node);
@@ -71,7 +62,7 @@ public class ReadXmlUtil {
 		writer.write(doc);
 		writer.close();
 	}
-	//设置参数值
+	//璁剧疆鍙傛暟鍊�
 	public static void setNameNode(String node,String name) throws Exception {
 		Element root = doc.getRootElement();
 		Element element = root.element("name").element(node);
