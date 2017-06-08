@@ -13,7 +13,7 @@ public class Configuration {
 	private static int pageSize;
 	private static String style = "default";
 	static {
-		InputStream in = Configuration.class.getClassLoader().getResourceAsStream("default.properties");
+		InputStream in = Configuration.class.getClassLoader().getResourceAsStream("classpath:/dev/default.properties");
 		Properties props = new Properties();
 		try {
 			// 1，读取配置文件
@@ -43,7 +43,7 @@ public class Configuration {
 	public static String setStyle(String style) {
 		Properties p = null;
 		try {
-			File f = new File(Configuration.class.getClassLoader().getResource("default.properties").getFile());
+			File f = new File(Configuration.class.getClassLoader().getResource("classpath:/dev/default.properties").getFile());
 			System.out.println(f.getAbsolutePath());
 			InputStream inputStream = new FileInputStream(f);  
 			p = new Properties(); 
@@ -67,7 +67,7 @@ public class Configuration {
 	public static String setPageSize(String pageSize) {
 		Properties p = null;
 		try {
-			File f = new File(Configuration.class.getClassLoader().getResource("default.properties").getFile());
+			File f = new File(Configuration.class.getClassLoader().getResource("classpath:/dev/default.properties").getFile());
 			//System.out.println(f.getAbsolutePath());
 			InputStream inputStream = new FileInputStream(f);  
 			p = new Properties(); 

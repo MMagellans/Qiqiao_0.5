@@ -10,25 +10,23 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-
 public class ReadXmlUtil {
 	private static Document doc = null;
 	private static File file = null;
 	static{
 		SAXReader reader = new SAXReader();
 		try{
-			File file = new File (ReadXmlUtil.class.getResource("/config.xml").getFile());
+			file = new File(ReadXmlUtil.class.getResource("/config.xml").getFile());
 			doc = reader.read(file);
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	/**
-	 * 鑾峰彇imagePath鑺傜偣涓嬬殑鍏冪礌鍐呭
+	 * 获取imagePath节点下的元素内容
 	 * 
-	 * @param node imagePath鑺傜偣涓嬬殑鑺傜偣鍚嶇О
+	 * @param node imagePath节点下的节点名称
 	 * 
 	 * @return
 	 */
@@ -40,9 +38,9 @@ public class ReadXmlUtil {
 	}
 	
 	/**
-	 * 鑾峰彇name鑺傜偣涓嬬殑鍏冪礌鍐呭
+	 * 获取name节点下的元素内容
 	 * 
-	 * @param node name鑺傜偣涓嬬殑鑺傜偣鍚嶇О
+	 * @param node name节点下的节点名称
 	 * 
 	 * @return
 	 */
@@ -53,7 +51,7 @@ public class ReadXmlUtil {
 		return name;
 	}
 	
-	//璁剧疆鍥剧墖璺緞
+	//设置图片路径
 	public static void setImagePathNode(String node , String path) throws Exception {
 		Element root = doc.getRootElement();
 		Element element = root.element("imagePath").element(node);
@@ -62,7 +60,7 @@ public class ReadXmlUtil {
 		writer.write(doc);
 		writer.close();
 	}
-	//璁剧疆鍙傛暟鍊�
+	//设置参数值
 	public static void setNameNode(String node,String name) throws Exception {
 		Element root = doc.getRootElement();
 		Element element = root.element("name").element(node);
