@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiqiao.dao.UserDtoMapper" >
+  <resultMap id="BaseResultMap" type="com.qiqiao.dto.UserDto" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="topicCount" property="topiccount" jdbcType="INTEGER" />
+    <result column="replyCount" property="replycount" jdbcType="INTEGER" />
+    <result column="credits" property="credits" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="birth" property="birth" jdbcType="TIMESTAMP" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="roleId" property="roleid" jdbcType="BIGINT" />
+    <result column="sectionId" property="sectionid" jdbcType="BIGINT" />
+    <result column="boardId" property="boardid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, password, name, topicCount, replyCount, credits, email, tel, icon, 
+    birth, gender, createTime, type, roleId, sectionId, boardId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from qiqiao_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from qiqiao_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qiqiao.dto.UserDto" >
+    insert into qiqiao_user (id, username, password, 
+      name, topicCount, replyCount, 
+      credits, email, tel, 
+      icon, birth, gender, 
+      createTime, type, roleId, 
+      sectionId, boardId)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{topiccount,jdbcType=INTEGER}, #{replycount,jdbcType=INTEGER}, 
+      #{credits,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{birth,jdbcType=TIMESTAMP}, #{gender,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{type,jdbcType=INTEGER}, #{roleid,jdbcType=BIGINT}, 
+      #{sectionid,jdbcType=BIGINT}, #{boardid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiqiao.dto.UserDto" >
+    insert into qiqiao_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="topiccount != null" >
+        topicCount,
+      </if>
+      <if test="replycount != null" >
+        replyCount,
+      </if>
+      <if test="credits != null" >
+        credits,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="birth != null" >
+        birth,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="roleid != null" >
+        roleId,
+      </if>
+      <if test="sectionid != null" >
+        sectionId,
+      </if>
+      <if test="boardid != null" >
+        boardId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="topiccount != null" >
+        #{topiccount,jdbcType=INTEGER},
+      </if>
+      <if test="replycount != null" >
+        #{replycount,jdbcType=INTEGER},
+      </if>
+      <if test="credits != null" >
+        #{credits,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null" >
+        #{birth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        #{sectionid,jdbcType=BIGINT},
+      </if>
+      <if test="boardid != null" >
+        #{boardid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiqiao.dto.UserDto" >
+    update qiqiao_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="topiccount != null" >
+        topicCount = #{topiccount,jdbcType=INTEGER},
+      </if>
+      <if test="replycount != null" >
+        replyCount = #{replycount,jdbcType=INTEGER},
+      </if>
+      <if test="credits != null" >
+        credits = #{credits,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null" >
+        birth = #{birth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="roleid != null" >
+        roleId = #{roleid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        sectionId = #{sectionid,jdbcType=BIGINT},
+      </if>
+      <if test="boardid != null" >
+        boardId = #{boardid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiqiao.dto.UserDto" >
+    update qiqiao_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      topicCount = #{topiccount,jdbcType=INTEGER},
+      replyCount = #{replycount,jdbcType=INTEGER},
+      credits = #{credits,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=TIMESTAMP},
+      gender = #{gender,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=INTEGER},
+      roleId = #{roleid,jdbcType=BIGINT},
+      sectionId = #{sectionid,jdbcType=BIGINT},
+      boardId = #{boardid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

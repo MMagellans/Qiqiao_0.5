@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiqiao.dao.ReplyDtoMapper" >
+  <resultMap id="BaseResultMap" type="com.qiqiao.dto.ReplyDto" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="postTime" property="posttime" jdbcType="TIMESTAMP" />
+    <result column="ipAddr" property="ipaddr" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="topicId" property="topicid" jdbcType="BIGINT" />
+    <result column="userId" property="userid" jdbcType="BIGINT" />
+    <result column="boardId" property="boardid" jdbcType="BIGINT" />
+    <result column="sectionId" property="sectionid" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.qiqiao.dto.ReplyDto" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, postTime, ipAddr, state, topicId, userId, boardId, sectionId
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from qiqiao_reply
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from qiqiao_reply
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qiqiao.dto.ReplyDto" >
+    insert into qiqiao_reply (id, postTime, ipAddr, 
+      state, topicId, userId, 
+      boardId, sectionId, content
+      )
+    values (#{id,jdbcType=BIGINT}, #{posttime,jdbcType=TIMESTAMP}, #{ipaddr,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{topicid,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, 
+      #{boardid,jdbcType=BIGINT}, #{sectionid,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiqiao.dto.ReplyDto" >
+    insert into qiqiao_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="posttime != null" >
+        postTime,
+      </if>
+      <if test="ipaddr != null" >
+        ipAddr,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="topicid != null" >
+        topicId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="boardid != null" >
+        boardId,
+      </if>
+      <if test="sectionid != null" >
+        sectionId,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="posttime != null" >
+        #{posttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipaddr != null" >
+        #{ipaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="topicid != null" >
+        #{topicid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="boardid != null" >
+        #{boardid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        #{sectionid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiqiao.dto.ReplyDto" >
+    update qiqiao_reply
+    <set >
+      <if test="posttime != null" >
+        postTime = #{posttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipaddr != null" >
+        ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="topicid != null" >
+        topicId = #{topicid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="boardid != null" >
+        boardId = #{boardid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        sectionId = #{sectionid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qiqiao.dto.ReplyDto" >
+    update qiqiao_reply
+    set postTime = #{posttime,jdbcType=TIMESTAMP},
+      ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      topicId = #{topicid,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=BIGINT},
+      boardId = #{boardid,jdbcType=BIGINT},
+      sectionId = #{sectionid,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiqiao.dto.ReplyDto" >
+    update qiqiao_reply
+    set postTime = #{posttime,jdbcType=TIMESTAMP},
+      ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      topicId = #{topicid,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=BIGINT},
+      boardId = #{boardid,jdbcType=BIGINT},
+      sectionId = #{sectionid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiqiao.dao.PrivilegeRoleDtoMapper" >
+  <resultMap id="BaseResultMap" type="com.qiqiao.dto.PrivilegeRoleDtoKey" >
+    <id column="roleId" property="roleid" jdbcType="BIGINT" />
+    <id column="privilegeId" property="privilegeid" jdbcType="BIGINT" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.qiqiao.dto.PrivilegeRoleDtoKey" >
+    delete from qiqiao_privilege_role
+    where roleId = #{roleid,jdbcType=BIGINT}
+      and privilegeId = #{privilegeid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qiqiao.dto.PrivilegeRoleDtoKey" >
+    insert into qiqiao_privilege_role (roleId, privilegeId)
+    values (#{roleid,jdbcType=BIGINT}, #{privilegeid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiqiao.dto.PrivilegeRoleDtoKey" >
+    insert into qiqiao_privilege_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleid != null" >
+        roleId,
+      </if>
+      <if test="privilegeid != null" >
+        privilegeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleid != null" >
+        #{roleid,jdbcType=BIGINT},
+      </if>
+      <if test="privilegeid != null" >
+        #{privilegeid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

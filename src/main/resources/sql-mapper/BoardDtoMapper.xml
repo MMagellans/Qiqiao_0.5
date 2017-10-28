@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiqiao.dao.BoardDtoMapper" >
+  <resultMap id="BaseResultMap" type="com.qiqiao.dto.BoardDto" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="topicCount" property="topiccount" jdbcType="INTEGER" />
+    <result column="articleCount" property="articlecount" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="sortNum" property="sortnum" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="highColor" property="highcolor" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="allowRole" property="allowrole" jdbcType="VARCHAR" />
+    <result column="lastTopicId" property="lasttopicid" jdbcType="BIGINT" />
+    <result column="sectionId" property="sectionid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, description, topicCount, articleCount, createTime, sortNum, state, highColor, 
+    icon, allowRole, lastTopicId, sectionId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from qiqiao_board
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from qiqiao_board
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qiqiao.dto.BoardDto" >
+    insert into qiqiao_board (id, name, description, 
+      topicCount, articleCount, createTime, 
+      sortNum, state, highColor, 
+      icon, allowRole, lastTopicId, 
+      sectionId)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{topiccount,jdbcType=INTEGER}, #{articlecount,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{sortnum,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{highcolor,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{allowrole,jdbcType=VARCHAR}, #{lasttopicid,jdbcType=BIGINT}, 
+      #{sectionid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiqiao.dto.BoardDto" >
+    insert into qiqiao_board
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="topiccount != null" >
+        topicCount,
+      </if>
+      <if test="articlecount != null" >
+        articleCount,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="sortnum != null" >
+        sortNum,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="highcolor != null" >
+        highColor,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="allowrole != null" >
+        allowRole,
+      </if>
+      <if test="lasttopicid != null" >
+        lastTopicId,
+      </if>
+      <if test="sectionid != null" >
+        sectionId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="topiccount != null" >
+        #{topiccount,jdbcType=INTEGER},
+      </if>
+      <if test="articlecount != null" >
+        #{articlecount,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sortnum != null" >
+        #{sortnum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="highcolor != null" >
+        #{highcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="allowrole != null" >
+        #{allowrole,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttopicid != null" >
+        #{lasttopicid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        #{sectionid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiqiao.dto.BoardDto" >
+    update qiqiao_board
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="topiccount != null" >
+        topicCount = #{topiccount,jdbcType=INTEGER},
+      </if>
+      <if test="articlecount != null" >
+        articleCount = #{articlecount,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sortnum != null" >
+        sortNum = #{sortnum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="highcolor != null" >
+        highColor = #{highcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="allowrole != null" >
+        allowRole = #{allowrole,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttopicid != null" >
+        lastTopicId = #{lasttopicid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        sectionId = #{sectionid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiqiao.dto.BoardDto" >
+    update qiqiao_board
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      topicCount = #{topiccount,jdbcType=INTEGER},
+      articleCount = #{articlecount,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      sortNum = #{sortnum,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      highColor = #{highcolor,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      allowRole = #{allowrole,jdbcType=VARCHAR},
+      lastTopicId = #{lasttopicid,jdbcType=BIGINT},
+      sectionId = #{sectionid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

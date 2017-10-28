@@ -27,11 +27,7 @@
 </settings>
 
 <typeAliases>
-	<package name="com.qiqiao.model"/>
-	<!-- 
-	<typeAlias type="com.qiqiao.model.Section" alias="Section"/>
-	<typeAlias type="com.qiqiao.model.Board" alias="Board"/>
-	 -->
+	<package name="com.qiqiao.dto"/>
 </typeAliases>
 
   <environments default="development">
@@ -47,10 +43,16 @@
   </environments>
 
 <mappers>
-<package name="com/qiqiao/mapper"/>
-	<!-- 
-	<mapper resource="com/qiqiao/mapper/SectionMapper.xml"/>
-	 -->	
+	<mapper resource="sql-mapper/AttachDtoMapper.xml"/>
+	<mapper resource="sql-mapper/BoardDtoMapper.xml"/>
+	<mapper resource="sql-mapper/PrivilegeDtoMapper.xml"/>
+	<mapper resource="sql-mapper/PrivilegeRoleDtoMapper.xml"/>
+	<mapper resource="sql-mapper/ReplyDtoMapper.xml"/>
+	<mapper resource="sql-mapper/RoleDtoMapper.xml"/>
+	<mapper resource="sql-mapper/SectionDtoMapper.xml"/>
+	<mapper resource="sql-mapper/TopicDtoMapper.xml"/>
+	<mapper resource="sql-mapper/UserDtoMapper.xml"/>
+	
 </mappers>
 
   

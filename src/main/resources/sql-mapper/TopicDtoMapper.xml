@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiqiao.dao.TopicDtoMapper" >
+  <resultMap id="BaseResultMap" type="com.qiqiao.dto.TopicDto" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="postTime" property="posttime" jdbcType="TIMESTAMP" />
+    <result column="ipAddr" property="ipaddr" jdbcType="VARCHAR" />
+    <result column="topScope" property="topscope" jdbcType="INTEGER" />
+    <result column="replyCount" property="replycount" jdbcType="INTEGER" />
+    <result column="visits" property="visits" jdbcType="INTEGER" />
+    <result column="isAttach" property="isattach" jdbcType="INTEGER" />
+    <result column="highColor" property="highcolor" jdbcType="VARCHAR" />
+    <result column="digest" property="digest" jdbcType="BIT" />
+    <result column="recommend" property="recommend" jdbcType="BIT" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="boardId" property="boardid" jdbcType="BIGINT" />
+    <result column="sectionId" property="sectionid" jdbcType="BIGINT" />
+    <result column="userId" property="userid" jdbcType="BIGINT" />
+    <result column="lastReplyId" property="lastreplyid" jdbcType="BIGINT" />
+    <result column="lastUpdateTime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+    <result column="param" property="param" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.qiqiao.dto.TopicDto" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, postTime, ipAddr, topScope, replyCount, visits, isAttach, highColor, digest, 
+    recommend, state, boardId, sectionId, userId, lastReplyId, lastUpdateTime, param
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from qiqiao_topic
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from qiqiao_topic
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.qiqiao.dto.TopicDto" >
+    insert into qiqiao_topic (id, title, postTime, 
+      ipAddr, topScope, replyCount, 
+      visits, isAttach, highColor, 
+      digest, recommend, state, boardId, 
+      sectionId, userId, lastReplyId, 
+      lastUpdateTime, param, content
+      )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{posttime,jdbcType=TIMESTAMP}, 
+      #{ipaddr,jdbcType=VARCHAR}, #{topscope,jdbcType=INTEGER}, #{replycount,jdbcType=INTEGER}, 
+      #{visits,jdbcType=INTEGER}, #{isattach,jdbcType=INTEGER}, #{highcolor,jdbcType=VARCHAR}, 
+      #{digest,jdbcType=BIT}, #{recommend,jdbcType=BIT}, #{state,jdbcType=INTEGER}, #{boardid,jdbcType=BIGINT}, 
+      #{sectionid,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{lastreplyid,jdbcType=BIGINT}, 
+      #{lastupdatetime,jdbcType=TIMESTAMP}, #{param,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiqiao.dto.TopicDto" >
+    insert into qiqiao_topic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="posttime != null" >
+        postTime,
+      </if>
+      <if test="ipaddr != null" >
+        ipAddr,
+      </if>
+      <if test="topscope != null" >
+        topScope,
+      </if>
+      <if test="replycount != null" >
+        replyCount,
+      </if>
+      <if test="visits != null" >
+        visits,
+      </if>
+      <if test="isattach != null" >
+        isAttach,
+      </if>
+      <if test="highcolor != null" >
+        highColor,
+      </if>
+      <if test="digest != null" >
+        digest,
+      </if>
+      <if test="recommend != null" >
+        recommend,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="boardid != null" >
+        boardId,
+      </if>
+      <if test="sectionid != null" >
+        sectionId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="lastreplyid != null" >
+        lastReplyId,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastUpdateTime,
+      </if>
+      <if test="param != null" >
+        param,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="posttime != null" >
+        #{posttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipaddr != null" >
+        #{ipaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="topscope != null" >
+        #{topscope,jdbcType=INTEGER},
+      </if>
+      <if test="replycount != null" >
+        #{replycount,jdbcType=INTEGER},
+      </if>
+      <if test="visits != null" >
+        #{visits,jdbcType=INTEGER},
+      </if>
+      <if test="isattach != null" >
+        #{isattach,jdbcType=INTEGER},
+      </if>
+      <if test="highcolor != null" >
+        #{highcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="digest != null" >
+        #{digest,jdbcType=BIT},
+      </if>
+      <if test="recommend != null" >
+        #{recommend,jdbcType=BIT},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="boardid != null" >
+        #{boardid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        #{sectionid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="lastreplyid != null" >
+        #{lastreplyid,jdbcType=BIGINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="param != null" >
+        #{param,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiqiao.dto.TopicDto" >
+    update qiqiao_topic
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="posttime != null" >
+        postTime = #{posttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipaddr != null" >
+        ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="topscope != null" >
+        topScope = #{topscope,jdbcType=INTEGER},
+      </if>
+      <if test="replycount != null" >
+        replyCount = #{replycount,jdbcType=INTEGER},
+      </if>
+      <if test="visits != null" >
+        visits = #{visits,jdbcType=INTEGER},
+      </if>
+      <if test="isattach != null" >
+        isAttach = #{isattach,jdbcType=INTEGER},
+      </if>
+      <if test="highcolor != null" >
+        highColor = #{highcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="digest != null" >
+        digest = #{digest,jdbcType=BIT},
+      </if>
+      <if test="recommend != null" >
+        recommend = #{recommend,jdbcType=BIT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="boardid != null" >
+        boardId = #{boardid,jdbcType=BIGINT},
+      </if>
+      <if test="sectionid != null" >
+        sectionId = #{sectionid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="lastreplyid != null" >
+        lastReplyId = #{lastreplyid,jdbcType=BIGINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="param != null" >
+        param = #{param,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qiqiao.dto.TopicDto" >
+    update qiqiao_topic
+    set title = #{title,jdbcType=VARCHAR},
+      postTime = #{posttime,jdbcType=TIMESTAMP},
+      ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      topScope = #{topscope,jdbcType=INTEGER},
+      replyCount = #{replycount,jdbcType=INTEGER},
+      visits = #{visits,jdbcType=INTEGER},
+      isAttach = #{isattach,jdbcType=INTEGER},
+      highColor = #{highcolor,jdbcType=VARCHAR},
+      digest = #{digest,jdbcType=BIT},
+      recommend = #{recommend,jdbcType=BIT},
+      state = #{state,jdbcType=INTEGER},
+      boardId = #{boardid,jdbcType=BIGINT},
+      sectionId = #{sectionid,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=BIGINT},
+      lastReplyId = #{lastreplyid,jdbcType=BIGINT},
+      lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      param = #{param,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiqiao.dto.TopicDto" >
+    update qiqiao_topic
+    set title = #{title,jdbcType=VARCHAR},
+      postTime = #{posttime,jdbcType=TIMESTAMP},
+      ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      topScope = #{topscope,jdbcType=INTEGER},
+      replyCount = #{replycount,jdbcType=INTEGER},
+      visits = #{visits,jdbcType=INTEGER},
+      isAttach = #{isattach,jdbcType=INTEGER},
+      highColor = #{highcolor,jdbcType=VARCHAR},
+      digest = #{digest,jdbcType=BIT},
+      recommend = #{recommend,jdbcType=BIT},
+      state = #{state,jdbcType=INTEGER},
+      boardId = #{boardid,jdbcType=BIGINT},
+      sectionId = #{sectionid,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=BIGINT},
+      lastReplyId = #{lastreplyid,jdbcType=BIGINT},
+      lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      param = #{param,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

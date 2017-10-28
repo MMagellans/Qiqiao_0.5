@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.qiqiao.cfg.Configuration;
@@ -24,11 +25,11 @@ import com.qiqiao.util.HqlHelper;
 @Transactional
 public class BaseDaoImpl<T> implements BaseDao<T> {
 	
-	@Resource
+	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Resource
-	public SqlSessionFactory sqlSessionFactory;
+/*	@Resource
+	public SqlSessionFactory sqlSessionFactory;*/
 	
 	private Class<T> clazz;
 	
@@ -46,9 +47,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		getSession().save(entity);
 	}
 	
-	public void save(MapperEnum mapper,T entity){
+/*	public void save(MapperEnum mapper,T entity){
 		getSqlSession().insert(mapper.getMapperPath(),entity);
-	}
+	}*/
 
 	/**
 	 * 删除实体
@@ -119,9 +120,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * 获取 Mybatis sqlSession
 	 * @return
 	 */
-	public SqlSession getSqlSession(){
+/*	public SqlSession getSqlSession(){
 		return sqlSessionFactory.openSession();
-	}
+	}*/
 //	
 //	/**
 //	 * 公共的获取分页信息
