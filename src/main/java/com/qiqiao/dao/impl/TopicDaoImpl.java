@@ -9,7 +9,7 @@ import com.qiqiao.dto.TopicDto;
 @Service
 public class TopicDaoImpl implements TopicDao {
 
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.TopicDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;
@@ -42,6 +42,11 @@ public class TopicDaoImpl implements TopicDao {
 	@Override
 	public int updateByPrimaryKey(TopicDto record) {
 		return sqlsession.update(NAME_SPACE + ".updateByPrimaryKey", record);
+	}
+
+	@Override
+	public int getTodayTopicCount(Long bordid) {
+		return sqlsession.selectOne(NAME_SPACE + ".getTodayTopicCount", bordid);
 	}
 
 }

@@ -9,7 +9,7 @@ import com.qiqiao.dto.AttachDto;
 @Service
 public class AttachDaoImpl implements AttachDao {
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.AttachDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;

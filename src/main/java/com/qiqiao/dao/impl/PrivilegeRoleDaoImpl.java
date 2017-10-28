@@ -9,7 +9,7 @@ import com.qiqiao.dto.PrivilegeRoleDtoKey;
 @Service
 public class PrivilegeRoleDaoImpl implements PrivilegeRoleDao {
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.PrivilegeRoleDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;

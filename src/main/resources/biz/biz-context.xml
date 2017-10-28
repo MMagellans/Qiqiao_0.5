@@ -42,17 +42,6 @@
 		<property name="maxIdleTime" value="1800"></property>
 	</bean>
 
-
-	<!-- 配置声明式的事务管理（采用注解的方式） -->
-	<bean id="txManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	
-	<!--
-		声明采用注解的方式进行事务管理
-	-->
-	<tx:annotation-driven transaction-manager="txManager" />
 	
 	<bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>

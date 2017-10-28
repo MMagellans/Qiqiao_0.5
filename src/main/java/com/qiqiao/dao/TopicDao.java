@@ -14,4 +14,6 @@ public interface TopicDao {
     int updateByPrimaryKeySelective(TopicDto record);
 
     int updateByPrimaryKey(TopicDto record);
+    
+    int getTodayTopicCount(Long bordid);
 }

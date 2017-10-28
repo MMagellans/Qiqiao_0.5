@@ -9,7 +9,7 @@ import com.qiqiao.dto.RoleDto;
 @Service
 public class RoleDaoImpl implements RoleDao {
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.RoleDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;

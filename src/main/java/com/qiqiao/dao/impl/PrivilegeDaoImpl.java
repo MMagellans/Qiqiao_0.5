@@ -9,7 +9,7 @@ import com.qiqiao.dto.PrivilegeDto;
 @Service
 public class PrivilegeDaoImpl implements PrivilegeDao {
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.PrivilegeDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;

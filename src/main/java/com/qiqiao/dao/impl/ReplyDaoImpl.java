@@ -9,7 +9,7 @@ import com.qiqiao.dto.ReplyDto;
 @Service
 public class ReplyDaoImpl implements ReplyDao{
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dto.ReplyDto";
 	
 	@Autowired
 	private SqlSession sqlsession;

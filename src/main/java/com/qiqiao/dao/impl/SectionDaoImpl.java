@@ -9,7 +9,7 @@ import com.qiqiao.dto.SectionDto;
 @Service
 public class SectionDaoImpl implements SectionDao {
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.SectionDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;

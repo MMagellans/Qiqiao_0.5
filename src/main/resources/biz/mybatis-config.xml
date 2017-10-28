@@ -43,15 +43,15 @@
   </environments>
 
 <mappers>
-	<mapper resource="sql-mapper/AttachDtoMapper.xml"/>
-	<mapper resource="sql-mapper/BoardDtoMapper.xml"/>
-	<mapper resource="sql-mapper/PrivilegeDtoMapper.xml"/>
-	<mapper resource="sql-mapper/PrivilegeRoleDtoMapper.xml"/>
-	<mapper resource="sql-mapper/ReplyDtoMapper.xml"/>
-	<mapper resource="sql-mapper/RoleDtoMapper.xml"/>
-	<mapper resource="sql-mapper/SectionDtoMapper.xml"/>
-	<mapper resource="sql-mapper/TopicDtoMapper.xml"/>
-	<mapper resource="sql-mapper/UserDtoMapper.xml"/>
+	<mapper resource="sql-mapper/AttachDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/BoardDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/PrivilegeDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/PrivilegeRoleDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/ReplyDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/RoleDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/SectionDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/TopicDtoMapper-basic.xml"/>
+	<mapper resource="sql-mapper/UserDtoMapper-basic.xml"/>
 	
 </mappers>
 

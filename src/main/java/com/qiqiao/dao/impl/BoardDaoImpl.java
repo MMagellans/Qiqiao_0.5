@@ -9,7 +9,7 @@ import com.qiqiao.dto.BoardDto;
 @Service
 public class BoardDaoImpl implements BoardDao {
 	
-	private final String NAME_SPACE = "com.qiqiao.dao.UserDtoMapper";
+	private final String NAME_SPACE = "com.qiqiao.dao.BoardDtoMapper";
 	
 	@Autowired
 	private SqlSession sqlsession;
