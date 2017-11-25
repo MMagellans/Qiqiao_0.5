@@ -13,6 +13,8 @@ import com.qiqiao.service.UserService;
 
 public class BaseController {
 	private static final long serialVersionUID = 1L;
+
+	
 	
 	@Resource
 	protected SectionService sectionService;	
